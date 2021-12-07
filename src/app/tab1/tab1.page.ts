@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { CarrinhoService } from './../model/carrinho.service';
+import { LojaService } from './../model/loja.service';
+import { Produto } from './../model/produto';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit{
+  produtos: Produto[];
 
-  constructor() {}
+  constructor(private ls: LojaService, private cs: CarrinhoService) {
+  }
 
+  ngOnInit(): void {
+    this.produtos = this.ls.obterProduto();
+  }
 }
