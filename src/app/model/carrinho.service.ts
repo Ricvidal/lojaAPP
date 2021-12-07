@@ -5,7 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class CarrinhoService {
 
-  
+
 
   constructor() { }
+
+  // adicionarItem(item: ){
+    
+  // }
 }

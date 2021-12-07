@@ -2,6 +2,7 @@ import { CarrinhoService } from './../model/carrinho.service';
 import { LojaService } from './../model/loja.service';
 import { Produto } from './../model/produto';
 import { Component, OnInit } from '@angular/core';
+import { ItemPedido } from '../model/item-pedido';
 
 @Component({
   selector: 'app-tab1',
@@ -17,4 +18,11 @@ export class Tab1Page implements OnInit{
   ngOnInit(): void {
     this.produtos = this.ls.obterProduto();
   }
+  // comprar(prod: Produto){
+  //   if (prod != undefined) {
+  //     const item: ItemPedido = new ItemPedido (prod, 1);
+  //     this.cs.adicionarItem(item);
+  //   }
+  // }
+
 }
