@@ -1,16 +1,22 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="tertiary" class="ion-text-center">
+  <ion-toolbar color="danger" class="ion-text-center">
     <ion-title>
-      Meu carrinho de Compras
+      Carrinho de Compras
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Meu carrinho de Compras</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+<ion-content>
+<ion-grid>
+  <ion-row class="ion-justify-content-start">
+    <ion-col size-md="6" offset-md="3">
+        <ion-card *ngFor="let item of itensDePedido">
+          <ion-card-header>
+            <ion-card-subtitle>{{item.produto}}</ion-card-subtitle>
+            <ion-card-title>{{item.quantidade}}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 </ion-content>

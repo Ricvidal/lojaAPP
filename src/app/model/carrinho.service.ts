@@ -1,3 +1,4 @@
+import { ItemPedido } from './item-pedido';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,11 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class CarrinhoService {
 
+  private itensDePedido: ItemPedido[]; 
 
+  constructor() { 
+    this.itensDePedido = [];
+  }
+  obterItem(): ItemPedido[]{
+    return [...this.itensDePedido];
+  }
 
-  constructor() { }
-
-  // adicionarItem(item: ){
-    
-  // }
+  adicionarItem(item: ItemPedido): boolean{
+    this.itensDePedido.push(item);
+    return true;
+  }
 }

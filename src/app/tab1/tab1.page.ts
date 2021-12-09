@@ -10,19 +10,20 @@ import { ItemPedido } from '../model/item-pedido';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit{
+
   produtos: Produto[];
 
-  constructor(private ls: LojaService, private cs: CarrinhoService) {
-  }
+  constructor(private ls: LojaService, private cs: CarrinhoService) {}
 
   ngOnInit(): void {
     this.produtos = this.ls.obterProduto();
   }
-  // comprar(prod: Produto){
-  //   if (prod != undefined) {
-  //     const item: ItemPedido = new ItemPedido (prod, 1);
-  //     this.cs.adicionarItem(item);
-  //   }
-  // }
+  comprar(prod: Produto){
+    if (prod != undefined) {
+      const item: ItemPedido = new ItemPedido (prod, 1);
+      this.cs.adicionarItem(item);
+      console.log(item);
+    }
+  }
 
 }

@@ -1,3 +1,4 @@
+import { ItemPedido } from './item-pedido';
 import { Produto } from './produto';
 import { Injectable } from '@angular/core';
 
@@ -45,7 +46,6 @@ export class LojaService {
 obterProduto(): Produto[]{
   return [...this.produtos];
 }
-
   // slvarCompra(compra: Compra): boolean {
 
   // }
