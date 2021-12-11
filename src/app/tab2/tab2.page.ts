@@ -1,3 +1,4 @@
+import { Produto } from './../model/produto';
 import { ItemPedido } from './../model/item-pedido';
 import { Component, OnInit } from '@angular/core';
 import { CarrinhoService } from '../model/carrinho.service';
@@ -15,6 +16,17 @@ export class Tab2Page implements OnInit {
   constructor(private cs: CarrinhoService) {}
 
   ngOnInit(): void {
-    this.itensDePedido = this.cs.obterItem();
+    this.itensDePedido = this.cs.obterItens();
   }
+
+  diminuirQuantidade(itm: ItemPedido){
+    if(itm.quantidade>0) {
+      itm.quantidade--;
+    }
+    
+  }
+  aumentarQuantidade(itm: ItemPedido){
+    itm.quantidade++;
+    // itm.produto.preco+=itm.produto.preco;
+ }
 }

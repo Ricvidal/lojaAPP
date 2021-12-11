@@ -15,6 +15,7 @@
           </ion-card-header>
           <ion-card-content>
             <ion-img class="prod" [src]="prod.imagem"></ion-img>
+            <ion-card-title>R${{prod.preco}}</ion-card-title>
             <ion-label>{{prod.descricao}}</ion-label>
             <ion-button color="danger" expand="block" fill="solid" (click)="comprar(prod)"><ion-icon name="basket-outline" slot="start"></ion-icon>comprar</ion-button>
           </ion-card-content>

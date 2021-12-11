@@ -1,8 +1,8 @@
+import { ItemPedido } from './../model/item-pedido';
 import { CarrinhoService } from './../model/carrinho.service';
 import { LojaService } from './../model/loja.service';
 import { Produto } from './../model/produto';
 import { Component, OnInit } from '@angular/core';
-import { ItemPedido } from '../model/item-pedido';
 
 @Component({
   selector: 'app-tab1',
@@ -25,5 +25,4 @@ export class Tab1Page implements OnInit{
       console.log(item);
     }
   }
-
 }
