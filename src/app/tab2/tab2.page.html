@@ -25,12 +25,11 @@
           </ion-item>
         </ion-item-group>
         
-        <ion-item color="secondary" *ngIf="this.cs.obterItens().length >0">Total: R${{cs.totalPedido()}} </ion-item>
+        <ion-item color="secondary" *ngIf="this.cs.obterItens().length >0">Total: R${{this.cs.totalPedido()}} </ion-item>
         <ion-button expand="block" *ngIf="this.cs.obterItens().length >0" color="success">
           <ion-icon name="basket-outline" slot="start"></ion-icon>concluir compra
         </ion-button>
       </ion-col>
-     
     </ion-row>
   </ion-grid>
 </ion-content>

@@ -1,4 +1,3 @@
-import { ItemPedido } from './item-pedido';
 import { Produto } from './produto';
 import { Injectable } from '@angular/core';
 
@@ -8,7 +7,6 @@ import { Injectable } from '@angular/core';
 export class LojaService {
 
   private produtos: Produto[];
-
 
   constructor() {
     this.produtos = [{

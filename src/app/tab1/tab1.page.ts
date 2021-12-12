@@ -22,7 +22,6 @@ export class Tab1Page implements OnInit{
     if (prod != undefined) {
       const item: ItemPedido = new ItemPedido (prod, 1);
       this.cs.adicionarItem(item);
-      console.log(item);
     }
   }
 }
