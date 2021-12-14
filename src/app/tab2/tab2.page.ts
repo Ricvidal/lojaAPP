@@ -20,18 +20,16 @@ export class Tab2Page implements OnInit {
   }
 
   diminuirQuantidade(itm: ItemPedido){
-    if(itm.quantidade>0) {
-      itm.quantidade--;
-    } else {
-      if(itm.quantidade==0) {
+    // if(itm.quantidade>0) {
+    //   itm.quantidade--;
+    // } else {
         this.cs.removerItem(itm);
-      }
-    }
+    // }
     
   }
   aumentarQuantidade(itm: ItemPedido){
-    itm.quantidade++;
-    // this.cs.adicionarItem(itm);
+    // itm.quantidade++;
+    this.cs.adicionarItem(itm);
  }
 
 

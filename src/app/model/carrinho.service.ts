@@ -20,38 +20,48 @@ export class CarrinhoService {
   }
 
   adicionarItem(item: ItemPedido): boolean {
-    const id = this.itensDePedido.map(pedidos => pedidos.produto.id)
-    console.log("ID: "+id);
-    const pos = id.indexOf(item.produto.id);
-    console.log("antes do if: "+this.itensDePedido.length);
-    if (pos >= 0) {
-      item.quantidade+=1;
-      this.totalPedido();
-      console.log("dentro do if: "+this.itensDePedido.length);
+    // const id = this.itensDePedido.map(pedidos => pedidos.produto.id)
+    // console.log("ID: " + id);
+    // const pos = this.itensDePedido.map(pedidos => pedidos.produto.id).indexOf(item.produto.id);
+    // console.log("antes do if: " + this.itensDePedido.length);
+    if (this.itensDePedido.map(pedidos => pedidos.produto.id).indexOf(item.produto.id) >= 0) {
+      item.quantidade++;
+      this.totalPedido(item);
+      console.log("dentro do if: " + this.itensDePedido.length);
       return false;
-    } else
-    this.itensDePedido.push(item);
-    this.totalPedido();
-    console.log("dentro do else: "+this.itensDePedido.length);
-    return true;
+    } else {
+      this.itensDePedido.push(item);
+      item.quantidade++;
+      this.totalPedido(item);
+      console.log("dentro do else: " + this.itensDePedido.length);
+      return true;
+    }
   }
-  
 
-  totalPedido() {
-    this.total = this.itensDePedido.map(pedidos => pedidos.produto.preco).reduce((soma, prod) => soma + prod);
-    // const vl = this.itensDePedido.map(pedidos => pedidos.produto.preco);
-    // const qtd = this.itensDePedido.map(pedidos => pedidos.quantidade);
 
-    // this.total = vl*qtd;
-    return this.total.toFixed(2);
+  totalPedido(itemPreco: ItemPedido) {
+    if (this.itensDePedido.length >= 0) {
+      itemPreco.produto.preco.toFixed(2);
+      this.total.toFixed(2);
+      this.total=this.total+itemPreco.produto.preco;
+      return this.total;
+    }
+    
   }
 
   removerItem(it: ItemPedido): boolean {
     const pos = this.itensDePedido.indexOf(it);
-    if (pos >= 0) {
+    if (pos >= 0 && it.quantidade>1) {
+      it.quantidade--;
+      it.produto.preco.toFixed(2);
+      this.total.toFixed(2);
+
+      this.total = this.total - it.produto.preco;
+      return false;
+    } else{
       this.itensDePedido.splice(pos, 1);
       return true;
     }
-    return false;
+   
   }
 }
